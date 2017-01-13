@@ -15,28 +15,38 @@ const generateTestList = () => {
 
   return list
 }
-
-// const bst = new BinarySearchTree()
-// bst.insert(3)
-// bst.search(3)  
-// bst.remove(3)
-// bst.traverse('inOrder', (val) => console.log(val)) // traverse the tree in the defined order (either 'preOrder', 'inOrder', or 'postOrder') and apply function on each node's value.
-// bst.count()    // return the number of nodes in the tree.
-
-describe.only('BinarySearchTree', () => {
+describe('BinarySearchTree', () => {
   'use strict'
 
   it('exists', () => {
     expect(BinarySearchTree).to.be.a('function')
   })
 
-  describe('insert()', () => {
+  describe.only('insert()', () => {
+
+    it('increments the count when inserting a node', () => {
+      const aBinarySearchTree = new BinarySearchTree()
+
+      expect(() => aBinarySearchTree.insert(6))
+        .to.alter(() => aBinarySearchTree.count(), { from: 0, to: 1 })
+    })
 
     it('inserts a node with the specified value into the tree.', () => {
       const aBinarySearchTree = new BinarySearchTree()
 
-      expect(() => aBinarySearchTree.insertFirst('foo'))
-        .to.alter(() => aBinarySearchTree.size(), { from: 0, to: 1 })
+      aBinarySearchTree.insert(6)
+      aBinarySearchTree.insert(3)
+      aBinarySearchTree.insert(8)
+      aBinarySearchTree.insert(7)
+
+      expect(aBinarySearchTree.root.data)
+        .to.equal(6)
+      expect(aBinarySearchTree.root.left.data)
+        .to.equal(3)
+      expect(aBinarySearchTree.root.right.data)
+        .to.equal(8)
+      expect(aBinarySearchTree.root.right.left.data)
+        .to.equal(7)
     })
   })
 
