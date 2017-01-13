@@ -15,23 +15,17 @@ export default class DoublyLinkedList {
       this.head = null
       this.tail = null
       this.count = 0
-
-
   }
   // Inserts a node (with the provided data) to the head of the list
   insertFirst ( value ) {
-    //create new node
     const node = new Node( value )
-    //find if head is defined
+
     if ( this.head ) {
-      //set old head to next of new node
       node.next = this.head
       this.head.prev = node
-      //if head is defined, set new node to head
-    } else {
-      //if not defined set current node to head
-      this.tail = node
     }
+
+    this.tail = node
     this.head = node
     this.count++
   }
@@ -42,22 +36,17 @@ export default class DoublyLinkedList {
 
   // Inserts a node (with the provided data) to the tail of the list
   insert ( value ) {
-    //create new node
     const node = new Node( value )
-    //find if tail is defined
+
     if ( this.head === null ) {
-    //set oldtail next to new node
       this.head = node
       this.tail = node
-
-    //set newnode to tail
     } else {
       this.tail.next = node
       node.prev = this.tail
       this.tail = node
     }
-    //set new tail to null
-    //this.tail = null
+
     this.count++
   }
   //Returns the first node containing the provided data,
