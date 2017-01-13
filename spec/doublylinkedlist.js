@@ -15,7 +15,7 @@ const generateTestList = () => {
 }
 
 
-describe.only('DoublyLinkedList', () => {
+describe('DoublyLinkedList', () => {
   'use strict'
 
   it('exists', () => {
