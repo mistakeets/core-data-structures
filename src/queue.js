@@ -1,41 +1,50 @@
-export default class pQueue {
+'use strict'
+
+
+export default class Queue {
   constructor(initialValues = []) {
-    this.top = 0
-    this.elements = []
-
-    initialValues.forEach(
-      value => this.enqueue(value.element, value.priority))
-  }
-
-  isEmpty() {
-    return this.top === 0 ? true : false
+    this.elements = initialValues
+    this.top = initialValues.length
   }
 
   length() {
     return this.top
   }
 
-  enqueue(value, priority = 0) {
-    this.elements.push({ value, priority })
-    this.top++
+  isEmpty() {
+    return this.top === 0 ? true : false
+  }
 
-      this.elements.sort((a, b) => a.priority - b.priority)
+  enqueue(el) {
+    this.elements.push(el)
+    this.top++
+      return el
   }
 
   dequeue() {
-    this.top--
-      return !this.isEmpty() ? this.elements.pop() : null;
+    if (this.top > 0) {
+      var shifty = this.elements.shift()
+      this.top--
+        return shifty
+    } else if (this.top === 0) {
+      return null
+    }
+
   }
 
   front() {
-    return !this.isEmpty() ? this.elements[this.top - 1].value : null;
+    if (this.top > 0) {
+      return this.elements[0]
+    } else {
+      return null
+    }
   }
-
-  topPriority() {
-    return this.isEmpty() ? undefined : this.elements[this.top - 1].priority
-  }
-
   back() {
-    return this.isEmpty() ? null : this.elements[0].value
+    if (this.top > 0) {
+      return this.elements.length - 1
+    } else {
+      return null
+    }
   }
+
 }
