@@ -15,7 +15,7 @@ const generateTestList = () => {
 }
 
 
-describe.only('DoublyLinkedList', () => {
+describe('DoublyLinkedList', () => {
   'use strict'
 
   it('exists', () => {
@@ -86,7 +86,7 @@ describe.only('DoublyLinkedList', () => {
     })
   })
 
-  describe ('isEmpty()', () => {
+  describe('isEmpty()', () => {
     it('Determines if the list is empty or not', () => {
       const aDoublyLinkedList = new DoublyLinkedList()
 
@@ -95,14 +95,14 @@ describe.only('DoublyLinkedList', () => {
     })
 
     it('returns false if the current list is occupied.', () => {
-        const aDoublyLinkedList = new DoublyLinkedList()
-        aDoublyLinkedList.insert('lotta stuff')
-        expect(aDoublyLinkedList.isEmpty())
-          .to.equal(false)
+      const aDoublyLinkedList = new DoublyLinkedList()
+      aDoublyLinkedList.insert('lotta stuff')
+      expect(aDoublyLinkedList.isEmpty())
+        .to.equal(false)
     })
   })
 
-  describe ('getHeadNode()', () => {
+  describe('getHeadNode()', () => {
     it('Returns the first node in the list', () => {
       const aDoublyLinkedList = generateTestList()
       expect(aDoublyLinkedList.head.data)
@@ -110,7 +110,7 @@ describe.only('DoublyLinkedList', () => {
     })
   })
 
-  describe ('getTailNode()', () => {
+  describe('getTailNode()', () => {
     it('Returns the first node in the list', () => {
       const aDoublyLinkedList = generateTestList()
       expect(aDoublyLinkedList.tail.data)

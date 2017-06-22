@@ -4,7 +4,7 @@ import HashTable from '../src/hash'
 
 chai.use(chaiChange)
 
-describe.only('HashTable', () => {
+describe('HashTable', () => {
   'use strict'
 
   it('exists', () => {
@@ -112,7 +112,7 @@ describe.only('HashTable', () => {
       expect(() => aHashTable.put('foo', 'bar'))
         .to.alter(() => aHashTable.size(), { from: 0, to: 1 })
       expect(() => aHashTable.put('lol', 'butts'))
-        .to.alter(() => aHashTable.size(), { from: 1, to: 2})
+        .to.alter(() => aHashTable.size(), { from: 1, to: 2 })
     })
   })
 
